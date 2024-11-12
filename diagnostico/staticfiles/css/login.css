@@ -1,53 +1,19 @@
-main .container-login {
-  width: 600px;
-  height: 600px;
-  margin-top: 150px;
-  border: 1px solid black;
-  border-radius: 5px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-}
-
-main .container-login h1 {
-  font-size: 50px;
-  color: green;
-  margin-bottom: 10px;
-}
-
-main .container-login form {
-  display: flex;
-  flex-direction: column;
-  margin: 10px 40px;
-  gap: 20px;
-}
-
-main .container-login label {
-  text-align: start;
-  font-size: 20px;
-}
-
-main .container-login input[type="text"],
-main .container-login input[type="password"] {
-  height: 30px;
-  border: 1px solid #d9d9d9;
-  border-radius: 5px;
-  padding: 10px;
-}
-
-main .container-login form .btn-op {
+main .container form .btn-op {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  gap: 250px;
+  gap: 200px;
   margin-top: 10px;
 }
 
-main .container-login form .btn-op a {
+main .container form .btn-op a {
   color: black;
 }
 
-main .container-login form .btn-op button {
+main .container form .btn-op button {
+  width: 167px;
+  font-size: 15px;
+  color: white;
   border: 1px solid black;
+  background-color: var(--green-color);
 }

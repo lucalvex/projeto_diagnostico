@@ -4,6 +4,10 @@
 
 {% block title %} Formulário de criação de conta {% endblock title %}
 
+{% block extra_styles %} 
+  <link rel="stylesheet" href="{% static "css/diag_form.css" %}">
+{% endblock extra_styles %}
+
 {% block menu %}
   <a href="" class="btn-entrar">Entrar</a>
   <a href="" class="btn-registrar">Registrar</a>
@@ -11,15 +15,29 @@
 
 {% block main %}
 
+<div class="container">
+
+  <h1> {{ title }}</h1>
+
   <form method="post">
+    
     {% csrf_token %}
     {{ form.as_p}}
+
     {% if form.non_field_erros %}
+
       <div class="msg_erro">
         {{ form.non_field_erros }}
       </div>
+
     {% endif %}
-    <button type="submit">Cadastrar</button>
+    
+    <div class="btn-op">
+      <button class="btn-form-cad" type="submit">Cadastrar</button>
+    </div>
+    
   </form>
+</div>
+  
 
 {% endblock main %}

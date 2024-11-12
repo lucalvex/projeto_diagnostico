@@ -22,3 +22,9 @@ class DiagnosticoCreate(CreateView):
   form_class = DiagnosticoForm
   success_url = reverse_lazy("diagnosticoHome")
   template_name = "diagnostico/diag_form.html"
+  title = 'CRIE JÁ SUA CONTA'
+  
+  def get_context_data(self, **kwargs):
+    context = super().get_context_data(**kwargs)
+    context['title'] = self.title
+    return context
