@@ -1,0 +1,38 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="{% static "css/base.css" %}"> 
+    {% block extra_styles %} {% endblock %}
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>{% block title %}{% endblock %}</title>
+  </head>
+
+  <body>
+    <header>
+      <img src="{% static "img/logo.png" %}" alt = "Logo da ACIM" class="logo-acim">
+      <div class="menu">
+        <a href="">Questionário</a>
+        <a href="">Resultados</a>
+        <a href="">Avaliação Profissional</a>
+        {% block menu %}{% endblock %}
+      </div>
+    </header>
+
+    <main>{% block main %} {% endblock %}</main>
+
+    {% block extra_scripts %} {% endblock %}
+  </body>
+</html>

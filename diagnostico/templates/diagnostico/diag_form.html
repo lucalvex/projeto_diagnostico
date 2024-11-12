@@ -1,0 +1,25 @@
+{% extends "diagnostico/base.html" %}
+
+{% load static %}
+
+{% block title %} Formulário de criação de conta {% endblock title %}
+
+{% block menu %}
+  <a href="" class="btn-entrar">Entrar</a>
+  <a href="" class="btn-registrar">Registrar</a>
+{% endblock menu %}
+
+{% block main %}
+
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p}}
+    {% if form.non_field_erros %}
+      <div class="msg_erro">
+        {{ form.non_field_erros }}
+      </div>
+    {% endif %}
+    <button type="submit">Cadastrar</button>
+  </form>
+
+{% endblock main %}

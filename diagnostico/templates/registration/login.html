@@ -1,0 +1,40 @@
+{% extends "diagnostico/base.html" %}
+
+{% load static %}
+
+{% block extra_styles %} 
+  <link rel="stylesheet" href="{% static "css/login.css" %}">
+{% endblock extra_styles %}
+
+{% block title %} Login {% endblock title %} 
+
+
+{% block menu %}
+
+  <a href="" class="btn-entrar">Entrar</a>
+  <a href="{% url "diagnosticoCreate" %}" class="btn-registrar">Registrar</a>
+
+{% endblock menu %}
+
+{% block main %}
+
+  <div class="container-login">
+    <h1>Entrar</h1>
+
+    <form method="post" action="{% url "diagnosticoLogin" %}">
+
+      {{ form.username.label_tag }}  
+      {{ form.username }}            
+
+      {{ form.password.label_tag }}  
+      {{ form.password }} 
+      
+      <div class="btn-op">
+        <a href=""> Esqueci minha senha </a>
+        <button type="submit">Entrar</button>
+      </div>
+    </form>
+    
+  </div>
+
+{% endblock main %}
