@@ -18,7 +18,7 @@ body {
 }
 
 header {
-  height: 130px;
+  height: 110px;
   background-color: #e2e6d5;
   border: 1px;
   display: flex;
@@ -28,8 +28,8 @@ header {
 }
 
 header .menu {
-  width: 700px;
-  gap: 10px;
+  width: 800px;
+  gap: 15px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -37,9 +37,10 @@ header .menu {
 
 header .menu a {
   text-decoration: none;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 300;
   color: black;
+  margin-right: 10px;
 }
 
 header .menu .btn-entrar,
@@ -50,6 +51,12 @@ main .container form .btn-op button {
   border-radius: 5px;
   padding: 10px;
   text-align: center;
+  font-size: 20px;
+}
+
+header .menu .btn-entrar,
+header .menu .btn-registrar {
+  margin-right: 0px;
 }
 
 header .menu .btn-registrar {
@@ -67,6 +74,7 @@ main .container {
   width: 600px;
   height: 600px;
   margin-top: 150px;
+  margin-bottom: 20px;
   border: 1px solid black;
   border-radius: 5px;
   display: flex;

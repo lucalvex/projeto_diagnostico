@@ -28,22 +28,24 @@ class DiagnosticoForm(LoginRequiredMixin, forms.ModelForm):
     )
   )
 
-  cnpj = forms.IntegerField (
+  cnpj = forms.CharField (
     label = "CNPJ",
-    widget = forms.NumberInput (
+    widget = forms.TextInput (
       attrs = {
+        'id' : 'cnpj',
         'class' : 'form-control',
-        'placeholder' : 'Digite o CNPJ de sua empresa'
+        'placeholder' : 'XX.XXX.XXX/0001-XX'
       }
     )
   )
 
-  nmrContato = forms.IntegerField (
+  nmrContato = forms.CharField (
     label = "Número de Contato",
-    widget = forms.NumberInput(
-      attrs = {
+    widget = forms.TextInput (
+      attrs = { 
+        'id' : 'nmrContato',      
         'class' : 'form-control',
-        'placeholder' : 'Digite o número de contato de sua empresa'
+        'placeholder' : '(XX) 9XX.XX-XX.XX'
       }
     )
   )
