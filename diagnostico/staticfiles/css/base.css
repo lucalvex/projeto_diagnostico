@@ -8,8 +8,9 @@
   --light_blue-color: #53AAD2;
   --beige-color: #E2E6D5;
   --green-color: #0A5D4B;
-  --baby_blue:  #97BDCC;
+  --baby_blue-color:  #97BDCC;
   --dark_blue-color: #243B78;
+  --red_erro_msg-color: red;
 }
 
 
@@ -72,7 +73,7 @@ main {
 
 main .container {
   width: 600px;
-  height: 600px;
+  height: 100%;
   margin-top: 150px;
   margin-bottom: 20px;
   border: 1px solid black;
@@ -81,6 +82,7 @@ main .container {
   flex-direction: column;
   justify-content: center;
   text-align: center;
+  padding-bottom: 20px;
 }
 
 main .container h1 {

@@ -1,5 +1,4 @@
 main .container {
-    height: 900px;
     width: 900px;
     margin-top: 70px;
 }
@@ -27,8 +26,13 @@ main .container form label {
 }
 
 main .container form input[type="text"],
-main .container form input[type="number"] {
+main .container form input[type="password"] {
     font-size: 18px;
+}
+
+main .container form .msg_erro {
+    color: red;
+    margin-top: 5px;
 }
 
 main .container form .btn-op {

@@ -3,7 +3,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
-
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -18,13 +17,15 @@
     />
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/inputmask/5.0.8/inputmask.min.js"></script>
 
     <title>{% block title %}{% endblock %}</title>
   </head>
 
   <body>
     <header>
-      <img src="{% static "img/logo.png" %}" alt = "Logo da ACIM" class="logo-acim">
+      <img src="{% static "img/logo.png" %}" alt = "Logo da ACIM"
+      class="logo-acim">
       <div class="menu">
         <a href="">Questionário</a>
         <a href="">Resultados</a>
@@ -35,7 +36,7 @@
 
     <main>{% block main %} {% endblock %}</main>
 
-    <script src = "{% static 'js/inputmask.min.js' %}"></script>
+    <script src="{% static 'js/inputmask.min.js' %}"></script>
 
     {% block extra_scripts %} {% endblock %}
   </body>

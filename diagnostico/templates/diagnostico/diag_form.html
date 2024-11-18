@@ -24,14 +24,6 @@
     {% csrf_token %}
     {{ form.as_p}}
 
-    {% if form.errors %}
-
-      <div class="msg_erro">
-        {{ form.errors }}
-      </div>
-
-    {% endif %}
-    
     <div class="btn-op">
       <button class="btn-form-slv" type="submit">Cadastrar</button>
     </div>
@@ -43,21 +35,13 @@
 
 {% block extra_scripts %} 
   
-  <script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var cnpjField = document.getElementById('cnpj');
+    var nmrContatoField = document.getElementById('nmrContato');
+    Inputmask("99.999.999/9999-99").mask(cnpjField);
+    Inputmask("(99) 999.99-99.99").mask(nmrContatoField);
+  });
+</script>
 
-    console.log("Script carregado: ", $inputmask);
-
-    $(document).ready(function(){
-
-      if ($.inputmask) {
-        console.log("Inputmask está disponível!");
-      } else {
-        console.log("Inputmask não está disponível!");
-      }
-    
-      $('#cnpj').inputmask('99.999.999/0001-99'); // Máscara para CNPJ
-      $('#nmrContato').inputmask('(99) 999.99-99.99'); // Máscara para CPF
-
-    });
-  </script>
 {% endblock extra_scripts %}

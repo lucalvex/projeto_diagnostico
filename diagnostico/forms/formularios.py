@@ -10,10 +10,10 @@ class DiagnosticoLoginForm(AuthenticationForm):
     label="Usuário",
     widget=forms.TextInput(attrs={'class': 'form-control'})
   )
-  password = forms.CharField(
-    label="Senha",
-    widget=forms.PasswordInput(attrs={'class': 'form-control'})
-  )
+  # password = forms.CharField(
+  #   label="Senha",
+  #   widget=forms.PasswordInput(attrs={'class': 'form-control'})
+  # )
 
 # Formulário de criação e atualização de informações do modelo Empresa
 class DiagnosticoForm(LoginRequiredMixin, forms.ModelForm): 
@@ -22,7 +22,6 @@ class DiagnosticoForm(LoginRequiredMixin, forms.ModelForm):
     label = "Nome da Empresa",
     widget = forms.TextInput (
       attrs = {
-        'class' : 'form-control',
         'placeholder' : 'Digite o nome completo da empresa'
       }
     )
@@ -33,7 +32,6 @@ class DiagnosticoForm(LoginRequiredMixin, forms.ModelForm):
     widget = forms.TextInput (
       attrs = {
         'id' : 'cnpj',
-        'class' : 'form-control',
         'placeholder' : 'XX.XXX.XXX/0001-XX'
       }
     )
@@ -44,7 +42,6 @@ class DiagnosticoForm(LoginRequiredMixin, forms.ModelForm):
     widget = forms.TextInput (
       attrs = { 
         'id' : 'nmrContato',      
-        'class' : 'form-control',
         'placeholder' : '(XX) 9XX.XX-XX.XX'
       }
     )
@@ -54,7 +51,6 @@ class DiagnosticoForm(LoginRequiredMixin, forms.ModelForm):
     label = "E-mail",
     widget = forms.TextInput(
       attrs = {
-        'class' : 'form-control',
         'placeholder' : 'Digite o e-mail de sua empresa'
       }
     )
@@ -62,9 +58,8 @@ class DiagnosticoForm(LoginRequiredMixin, forms.ModelForm):
 
   senha = forms.CharField (
     label = "Senha",
-    widget = forms.TextInput(
+    widget = forms.PasswordInput(
       attrs = {
-        'class' : 'form-control',
         'placeholder' : 'Digite uma senha'
       }
     )
@@ -72,9 +67,8 @@ class DiagnosticoForm(LoginRequiredMixin, forms.ModelForm):
 
   confirmarSenha = forms.CharField (
     label = "Confirmar Senha",
-    widget = forms.TextInput(
+    widget = forms.PasswordInput(
       attrs = {
-        'class' : 'form-control',
         'placeholder' : 'Confirme sua senha'
       }
     )
@@ -86,10 +80,11 @@ class DiagnosticoForm(LoginRequiredMixin, forms.ModelForm):
   
   def clean_confirmarSenha(self):
 
+    cleaned_data = super().clean()
     senha = self.cleaned_data.get('senha')
     confirmarSenha = self.cleaned_data.get('confirmarSenha')
 
-    if senha != confirmarSenha: 
-      raise forms.ValidationError("O valor inserido no campo 'Senha' tem que ser o mesmo que no campo 'Confirmar Senha' ")
-    else:
-      return senha 
+    if senha != confirmarSenha:
+      raise forms.ValidationError("As senhas não coincidem.")
+    return cleaned_data
+    
