@@ -72,8 +72,8 @@ main {
 }
 
 main .container {
-  width: 600px;
-  height: 100%;
+  width: 700px;
+  height: 700px;
   margin-top: 150px;
   margin-bottom: 20px;
   border: 1px solid black;
@@ -110,6 +110,7 @@ main .container form input[type="number"] {
   border: 1px solid #d9d9d9;
   border-radius: 5px;
   padding: 10px;
+  font-size: 18px;
 }
 
 /* Para Chrome, Sefari, Edge e Opera */

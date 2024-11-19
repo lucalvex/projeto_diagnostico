@@ -1,3 +1,12 @@
+main .container form p {
+  display: flex;
+  flex-direction: column;
+}
+
+main .container form p label {
+  margin-bottom: 10px;
+}
+
 main .container form .btn-op {
   display: flex;
   flex-direction: row;

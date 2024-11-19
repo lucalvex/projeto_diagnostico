@@ -19,22 +19,33 @@
 {% block main %}
 
   <div class="container">
-    <h1>Entrar</h1>
+    <h1>{{ title }}</h1>
 
-    <form method="post" action="{% url "diagnosticoLogin" %}">
+    <form action = "{{ previous_url }}" method="post">
 
-      {{ form.username.label_tag }}  
-      {{ form.username }}            
+      {% csrf_token %}
+      {{ form.as_p }}
 
-      {{ form.password.label_tag }}  
-      {{ form.password }} 
-      
       <div class="btn-op">
+
         <a href=""> Esqueci minha senha </a>
         <button type="submit">Entrar</button>
+
       </div>
     </form>
     
   </div>
 
 {% endblock main %}
+
+{% block extra_scripts  %}
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var cnpjField = document.getElementById('cnpj');
+      Inputmask("99.999.999/9999-99").mask(cnpjField);
+    });
+  </script>
+
+{% endblock extra_scripts  %}
+
