@@ -100,4 +100,4 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Direcionamento login
 LOGIN_URL = 'diagnosticoLogin'
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = 'diagnosticoHome'

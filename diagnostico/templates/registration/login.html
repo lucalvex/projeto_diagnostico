@@ -11,7 +11,7 @@
 
 {% block menu %}
 
-  <a href="" class="btn-entrar">Entrar</a>
+  <a href="{% url "diagnosticoHome" %}" class="btn-entrar">Entrar</a>
   <a href="{% url "diagnosticoCreate" %}" class="btn-registrar">Registrar</a>
 
 {% endblock menu %}
@@ -21,7 +21,7 @@
   <div class="container">
     <h1>{{ title }}</h1>
 
-    <form action = "{{ previous_url }}" method="post">
+    <form action = "{% url "diagnosticoHome" %} "method="post">
 
       {% csrf_token %}
       {{ form.as_p }}

@@ -2,7 +2,12 @@
 
 {% load static %}
 
+{% block extra_styles %} 
+  <link rel="stylesheet" href="{% static "css.login.css" %}">
+{% endblock %}
+
 {% block title %} Home {% endblock title %} 
-{% block extra_styles %}
-  <link rel="stylesheet" href="style.css">
-{% endblock extra_styles %}
+
+{% block main %}
+  <h1>Teste</h1>
+{% endblock main %}

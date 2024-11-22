@@ -34,9 +34,6 @@ class DiagnosticoLoginForm(forms.Form):
     cnpj = cleaned_data.get('cnpj')
     senha = cleaned_data.get('senha')
     
-    if not cnpj or not senha:
-      raise forms.ValidationError("CNPJ e senha não campos obrigatórios. ")
-    
     try:
       
       empresa = Empresa.objects.get(cnpj = cnpj)
@@ -133,8 +130,8 @@ class DiagnosticoForm(forms.ModelForm):
     senha = self.cleaned_data.get('senha')
     confirmarSenha = self.cleaned_data.get('confirmarSenha')
 
-    if senha and confirmarSenha and senha !=confirmarSenha:
-      raise forms.ValidationError("As senhas não coincidem.")
+    if senha and confirmarSenha and senha != confirmarSenha:
+      raise forms.ValidationError("As senhas não coincidem. Tente novamente !")
     
     return confirmarSenha
     

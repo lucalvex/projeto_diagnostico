@@ -26,10 +26,14 @@ main .container form label {
     font-weight: bold;
 }
 
-main .container form .msg_erro {
+main .container form .errorlist {
+    list-style-type: none;
+    font-size: 18px;
+    font-weight: 500;
+    text-align: start;
     color: red;
     margin-top: 5px;
-}
+} 
 
 main .container form .btn-op {
     width: 100%;
