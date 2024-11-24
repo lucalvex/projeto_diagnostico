@@ -1,0 +1,11 @@
+main {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+main .container-painel {
+  height: 100%;
+  width: 420px;
+  background-color: var(--green-color);
+}

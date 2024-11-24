@@ -6,7 +6,6 @@ from django.views.generic import View, CreateView
 from django.urls import reverse_lazy
 
 import logging
-from django.shortcuts import redirect
 from django.contrib.auth import authenticate, login
 
 # Configuração do log
@@ -64,15 +63,9 @@ class DiagnosticoLogin(LoginView):
     context['form'] = self.form_class(request = self.request)
     
     return context
-  
-
-class DiagnosticoView(LoginRequiredMixin, View):
-  template_name = 'diagnostico/diag_main.html'
-
-  def get(self, request):
-    return render(request, self.template_name)
 
 class DiagnosticoCreate(CreateView):
+  
   model = Empresa
   form_class = DiagnosticoForm
   success_url = reverse_lazy("diagnosticoHome")
@@ -103,3 +96,16 @@ class DiagnosticoCreate(CreateView):
       self.request.session['previous_url'] = referer
 
     return context
+
+class DiagnosticoView(View):
+  template_name = 'diagnostico/diag_main.html'
+
+  def get(self, request):
+    return render(request, self.template_name)
+  
+class DiagnosticoQuestionario(View):
+  template_name = 'diagnostico/diag_questionario.html'
+
+  def get(self, request):
+    return render(request, self.template_name)
+

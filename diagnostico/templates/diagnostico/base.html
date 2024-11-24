@@ -24,10 +24,14 @@
 
   <body>
     <header>
-      <img src="{% static "img/logo.png" %}" alt = "Logo da ACIM"
-      class="logo-acim">
+      <div class="img-logos">
+        <a href = {% url "diagnosticoHome" %}>
+          <img  src="{% static "img/logo.png" %}" alt = "Logo da ACIM">
+          <img href = {% url "diagnosticoHome" %} src="{% static "img/hub-logo.png" %}" alt = "Logo do HUB">
+        </a>
+      </div>
       <div class="menu">
-        <a href="">Questionário</a>
+        <a href="{% url "diagnosticoQuestionario" %}">Questionário</a>
         <a href="">Resultados</a>
         <a href="">Avaliação Profissional</a>
         {% block menu %}{% endblock %}

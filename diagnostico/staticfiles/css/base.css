@@ -14,7 +14,8 @@
 }
 
 
-body {
+html, body {
+  height: 100%;
   font-family: "Roboto", sans-serif;
 }
 
@@ -26,6 +27,11 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 0 20px;
+}
+
+header .img-logos a {
+  display: flex;
+  gap: 80px;
 }
 
 header .menu {
@@ -46,6 +52,8 @@ header .menu a {
 
 header .menu .btn-entrar,
 header .menu .btn-registrar,
+header .menu .btn-perfil,
+header .menu .btn-loggout,
 main .container form .btn-op button {
   width: 100px;
   background-color: white;
@@ -60,7 +68,8 @@ header .menu .btn-registrar {
   margin-right: 0px;
 }
 
-header .menu .btn-registrar {
+header .menu .btn-registrar,
+header .menu .btn-loggout {
   background-color: #2c2c2c;
   color: white;
 }
@@ -74,10 +83,8 @@ main {
 main .container {
   width: 700px;
   height: 700px;
-  margin-top: 150px;
-  margin-bottom: 20px;
   border: 1px solid black;
-  border-radius: 5px;
+  border-radius: 3px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -101,12 +108,14 @@ main .container form {
 main .container form label {
   text-align: start;
   font-size: 20px;
+  font-weight: 500;
 }
 
 main .container form input[type="text"],
 main .container form input[type="password"],
 main .container form input[type="number"] {
   height: 30px;
+  margin-bottom: 10px;
   border: 1px solid #d9d9d9;
   border-radius: 5px;
   padding: 10px;
