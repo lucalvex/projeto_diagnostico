@@ -80,16 +80,16 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'items',
-#         'USER': 'admin',
-#         'PASSWORD': 'l@b!nf0',
-#         'HOST': 'localhost',  # Pode ser outro endereço se o banco de dados estiver em um servidor remoto
-#         'PORT': '3306', 
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'items',
+        'USER': 'admin',
+        'PASSWORD': 'l@b!nf0',
+        'HOST': 'localhost',  # Pode ser outro endereço se o banco de dados estiver em um servidor remoto
+        'PORT': '3306', 
+    }
+}
 
 
 # Internationalization
