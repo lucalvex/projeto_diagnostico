@@ -21,7 +21,7 @@
   <div class="container">
     <h1>{{ title }}</h1>
 
-    <form action = "{{ previous_url }}" method="post">
+    <form method="post">
 
       {% csrf_token %}
       {{ form.as_p }}
