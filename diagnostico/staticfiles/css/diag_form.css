@@ -1,7 +1,9 @@
 main .container {
-    width: 900px;
+    width: 800px;
     height: 900px;
     margin-top: 70px;
+    padding-top: 40px;
+    padding-bottom: 40px;
 }
 
 main .container h1 {
@@ -37,14 +39,20 @@ main .container form .errorlist {
 
 main .container form .btn-op {
     width: 100%;
-    align-content: center;
+    
 }
 
-main .container form .btn-op .btn-form-slv {
-    height: 40px;
+main .container form .btn-op .btn-form-slv,
+main .container form .btn-op .btn-form-cancelar {
     width: 40%;
     color: white;
     background-color: var(--green-color);
     border: 1px solid black;
     border-radius: 5px;
+}
+
+main .container form .btn-op .btn-form-cancelar {
+    background-color: var(--red_erro_msg-color);
+    text-decoration: none;
+    display: inline-block;
 }

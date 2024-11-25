@@ -80,6 +80,17 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'diagnostico',
+        'USER': 'userAdmin',
+        'PASSWORD': '1234',
+        'HOST': 'localhost',  # Pode ser outro endereço se o banco de dados estiver em um servidor remoto
+        'PORT': '3306', 
+    }
+}
+
 
 # Internationalization
 LANGUAGE_CODE = "pt-br"

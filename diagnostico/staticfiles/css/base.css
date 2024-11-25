@@ -54,7 +54,8 @@ header .menu .btn-entrar,
 header .menu .btn-registrar,
 header .menu .btn-perfil,
 header .menu .btn-loggout,
-main .container form .btn-op button {
+main .container form .btn-op button,
+main .container form .btn-op a {
   width: 100px;
   background-color: white;
   border-radius: 5px;
@@ -78,6 +79,7 @@ main {
   height: 100%;
   display: flex;
   justify-content: center;
+  margin-bottom: 40px;
 }
 
 main .container {
