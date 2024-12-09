@@ -22,7 +22,10 @@ main .container form .btn-op {
 }
 
 main .container form .btn-op a {
+  width: 150px;
   color: black;
+  font-size: 15px;
+  text-decoration: none;
 }
 
 main .container form .btn-op button {

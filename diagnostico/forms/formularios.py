@@ -1,6 +1,6 @@
+import re
+
 from django import forms
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.auth.hashers import make_password, check_password
 
 from diagnostico.models import Empresa
 
@@ -28,28 +28,39 @@ class DiagnosticoLoginForm(forms.Form):
     required=True
   )
   
-  def clean(self):
-    
-    cleaned_data = super().clean()
-    cnpj = cleaned_data.get('cnpj')
-    senha = cleaned_data.get('senha')
-    
-    try:
-      
-      empresa = Empresa.objects.get(cnpj = cnpj)
-      
-      if not check_password(senha, empresa.senha):
-        raise forms.ValidationError("Senha incorreta.")
-      
-    except Empresa.DoesNotExist:
-      raise forms.ValidationError("CNPJ não encontrado.")
-    
-    return cleaned_data
-  
   def __init__(self, *args, **kwargs):
-    
+  
     self.request = kwargs.pop('request', None)
     super().__init__(*args, **kwargs)
+  
+  
+  # Limpa a máscara aplicada ao campo cnpj
+  def clean_cnpj(self):
+    cnpj = self.cleaned_data.get('cnpj')
+    
+    if cnpj:
+      cnpj = re.sub(r'\D', '', cnpj) # Remove todos os caracteres que não são números
+    
+    return cnpj
+
+  # def clean(self):
+    
+  #   cleaned_data = super().clean()
+  #   cnpj = cleaned_data.get('cnpj')
+  #   senha = cleaned_data.get('senha')
+    
+  #   try:
+      
+  #     empresa = Empresa.objects.get(cnpj = cnpj)
+      
+  #     if not check_password(senha, empresa.senha):
+  #       raise forms.ValidationError("Senha incorreta.")
+      
+  #   except Empresa.DoesNotExist:
+  #     raise forms.ValidationError("CNPJ não encontrado.")
+    
+  #   return cleaned_data
+  
     
 # Formulário de criação e atualização de informações do modelo Empresa
 class DiagnosticoForm(forms.ModelForm): 
@@ -134,4 +145,20 @@ class DiagnosticoForm(forms.ModelForm):
       raise forms.ValidationError("As senhas não coincidem. Tente novamente !")
     
     return confirmarSenha
+  
+  # Limpa a máscara aplicada ao campo cnpj
+  def clean_cnpj(self):
+    cnpj = self.cleaned_data.get('cnpj')
+    
+    if cnpj:
+      cnpj = re.sub(r'\D', '', cnpj) # Remove todos os caracteres que não são números
+    
+    return cnpj
+  
+  # Limpa a máscara aplicada ao campo nrmContato
+  def clean_nmrContato(self):
+    nmr_contato = self.cleaned_data.get('nmrContato')
+    if nmr_contato:
+      nmr_contato = re.sub(r'\D', '', nmr_contato)  # Remove todos os caracteres que não são números
+    return nmr_contato
     

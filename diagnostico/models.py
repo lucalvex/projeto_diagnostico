@@ -1,7 +1,6 @@
 import uuid
 
 from django.db import models
-from django.contrib.auth.models import User
 
 class Empresa(models.Model): 
 
@@ -11,3 +10,4 @@ class Empresa(models.Model):
   nmrContato = models.CharField(verbose_name = "Número de Contato", null = False, blank = False, max_length = 100)
   email = models.CharField(verbose_name = "E-mail", null = False, blank = False, max_length = 100)
   senha = models.CharField(verbose_name = "Senha", null = False, blank = False, max_length = 100)
+

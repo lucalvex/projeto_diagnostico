@@ -22,11 +22,13 @@ class DiagnosticoLogin(LoginView):
   title = "LOGIN"
   
   def form_valid(self, form):
+
     # Captura dos dados do formulário
     cnpj = form.cleaned_data['cnpj']
     senha = form.cleaned_data['senha']
     
     try:
+      
       # Verifica se a empresa existe
       empresa = Empresa.objects.get(cnpj=cnpj)
 
@@ -75,12 +77,15 @@ class DiagnosticoCreate(CreateView):
   def form_valid(self, form):
     
     response = super().form_valid(form)
-    previous_url = self.request.session.get('previous_url')
+    previous_url = self.request.session.get('previous_url') 
 
-    if previous_url:
+    if previous_url and previous_url != self.request.build_absolute_uri():
+
       # Redireciona para a URL anterior armazenada na sessão
       return HttpResponseRedirect(previous_url)
+    
     else:
+
       # Caso não haja URL anterior, redireciona para o success_url
       return response
     
@@ -88,16 +93,20 @@ class DiagnosticoCreate(CreateView):
     return super().form_invalid(form)
   
   def get_context_data(self, **kwargs):
+
     context = super().get_context_data(**kwargs)
     context['title'] = self.title 
-    referer = self.request.META.get('HTTP_REFERER')
     
-    if referer:
-      self.request.session['previous_url'] = referer
+    if self.request.method == 'GET':
+      referer = self.request.META.get('HTTP_REFERER')
+
+      if referer:
+        # Apenas atualiza a `previous_url` se o método for GET
+        self.request.session['previous_url'] = referer
 
     return context
 
-class DiagnosticoView(View):
+class DiagnosticoView(LoginRequiredMixin, View):
   template_name = 'diagnostico/diag_main.html'
 
   def get(self, request):
